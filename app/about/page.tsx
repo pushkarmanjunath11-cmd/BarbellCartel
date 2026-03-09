@@ -1,3 +1,5 @@
+"use client";
+
 import PageHero from "@/components/PageHero";
 import StatsBar from "@/components/StatsBar";
 import Link from "next/link";
