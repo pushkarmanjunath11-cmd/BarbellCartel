@@ -17,7 +17,7 @@ export default function Footer() {
           <div style={{ fontFamily: "'Barlow Condensed', sans-serif", fontSize: "0.58rem", letterSpacing: "0.38em", color: "#555", textTransform: "uppercase" }}>
             BROOKEFIELD · BANGALORE
           </div>
-            <p style={{ color: "#444", fontSize: "0.85rem", lineHeight: 1.75 }}>
+            <p style={{ color: "#444", fontSize: "0.85rem", lineHeight: 1.75, marginTop: "15px" }}>
               AECS Layout's most energetic and spacious gym. Your transformation starts here.
             </p>
           </div>
