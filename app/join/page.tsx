@@ -237,5 +237,3 @@ export default function JoinPage() {
     </>
   );
 }
-
-`my name is pushkar`
