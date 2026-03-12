@@ -158,3 +158,138 @@ body {
   transform: scale(1.12);
   box-shadow: 0 10px 40px rgba(37,211,102,0.65);
 }
+
+/* ── GLOBAL OVERLAY ANIMATIONS ─────────────────────── */
+@keyframes gradientShift {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 0 20px rgba(212,175,55,0.2); }
+  50%       { box-shadow: 0 0 50px rgba(212,175,55,0.5); }
+}
+
+@keyframes borderRun {
+  0%   { background-position: 0% 0%; }
+  100% { background-position: 300% 0%; }
+}
+
+@keyframes scanLine {
+  0%   { transform: translateY(-100%); opacity: 0.4; }
+  100% { transform: translateY(100vh);  opacity: 0; }
+}
+
+@keyframes counterPop {
+  0%   { transform: scale(0.6); opacity: 0; }
+  70%  { transform: scale(1.08); }
+  100% { transform: scale(1);   opacity: 1; }
+}
+
+@keyframes rotateGlobe {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+@keyframes noiseDrift {
+  0%   { background-position: 0 0; }
+  100% { background-position: 100px 100px; }
+}
+
+.gold-border-run {
+  position: relative;
+}
+.gold-border-run::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border: 1.5px solid transparent;
+  background: linear-gradient(90deg, transparent, #D4AF37, transparent, #D4AF37) border-box;
+  background-size: 300% 100%;
+  -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: destination-out;
+  mask-composite: exclude;
+  animation: borderRun 3s linear infinite;
+  pointer-events: none;
+}
+
+.parallax-slow {
+  will-change: transform;
+}
+
+.section-overlay {
+  position: relative;
+  overflow: hidden;
+}
+.section-overlay::before {
+  content: '';
+  position: absolute;
+  top: -2px; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #D4AF37, transparent);
+  opacity: 0.6;
+}
+
+.scan-effect::after {
+  content: '';
+  position: absolute;
+  left: 0; right: 0;
+  height: 120px;
+  background: linear-gradient(to bottom, transparent, rgba(212,175,55,0.04), transparent);
+  animation: scanLine 4s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.card-magnetic {
+  transition: transform 0.4s cubic-bezier(0.22,1,0.36,1), box-shadow 0.4s;
+}
+.card-magnetic:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 30px 80px rgba(212,175,55,0.15);
+}
+
+.img-reveal {
+  overflow: hidden;
+}
+.img-reveal img {
+  transition: transform 0.7s cubic-bezier(0.22,1,0.36,1), filter 0.5s;
+  filter: brightness(0.85) saturate(0.9);
+}
+.img-reveal:hover img {
+  transform: scale(1.07);
+  filter: brightness(1) saturate(1.1);
+}
+
+.text-split-line {
+  overflow: hidden;
+  display: block;
+}
+
+.noise-overlay::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none;
+  opacity: 0.4;
+  z-index: 0;
+}
+
+/* ── DARK SELECT DROPDOWN ─────────────────────────── */
+select.input-field {
+  background: #111 !important;
+  color: #F0F0F0 !important;
+  color-scheme: dark;
+}
+
+select.input-field option {
+  background: #1A1A1A !important;
+  color: #F0F0F0 !important;
+}
+
+select.input-field option:checked,
+select.input-field option:hover {
+  background: #D4AF37 !important;
+  color: #0A0A0A !important;
+}
