@@ -157,7 +157,8 @@ export default function HomePage() {
           background: "linear-gradient(to right, rgba(10,10,10,0.96) 0%, rgba(10,10,10,0.8) 50%, rgba(10,10,10,0.3) 100%)" }} />
         <div style={{ position: "absolute", inset: 0, zIndex: 2,
           background: "linear-gradient(to top, rgba(10,10,10,0.7) 0%, transparent 60%)" }} />
-        <div className="overlay-grid scan-line" style={{ position: "absolute", inset: 0, zIndex: 3 }} />
+        <div className="hero-overlay-main" style={{ position: "absolute", inset: 0, zIndex: 1,
+  background: "linear-gradient(to right, rgba(10,10,10,0.96) 0%, rgba(10,10,10,0.8) 50%, rgba(10,10,10,0.3) 100%)" }} />
 
         {/* Glow orbs */}
         <div style={{ position: "absolute", top: "20%", right: "8%", width: 500, height: 500,

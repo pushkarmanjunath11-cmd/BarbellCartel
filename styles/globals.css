@@ -293,3 +293,41 @@ select.input-field option:hover {
   background: #D4AF37 !important;
   color: #0A0A0A !important;
 }
+
+/* ── MOBILE COLOR FIXES ───────────────────────────── */
+@media (max-width: 768px) {
+
+  /* Fix dull gold shimmer on mobile */
+  .gold-shimmer {
+    background: none !important;
+    -webkit-text-fill-color: #D4AF37 !important;
+    color: #D4AF37 !important;
+    animation: none !important;
+  }
+
+  /* Brighter hero overlay on mobile */
+  .hero-overlay-main {
+    background: linear-gradient(
+      to right,
+      rgba(10,10,10,0.85) 0%,
+      rgba(10,10,10,0.65) 100%
+    ) !important;
+  }
+
+  /* Brighter buttons on mobile */
+  .btn-primary {
+    background: #D4AF37 !important;
+    box-shadow: 0 4px 20px rgba(212,175,55,0.4) !important;
+  }
+
+  .btn-outline {
+    border-color: #D4AF37 !important;
+    color: #D4AF37 !important;
+  }
+
+  /* Brighter section tags */
+  .section-tag {
+    color: #D4AF37 !important;
+    border-color: rgba(212,175,55,0.4) !important;
+  }
+}
