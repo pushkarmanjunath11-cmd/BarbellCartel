@@ -46,8 +46,6 @@ export default function HomePage() {
         @keyframes fadeSlide { from{opacity:0;transform:translateY(32px)} to{opacity:1;transform:none} }
         @keyframes kenBurns { from{transform:scale(1)} to{transform:scale(1.08)} }
         @keyframes glowPulse { 0%,100%{opacity:0.4} 50%{opacity:0.9} }
-        @keyframes lineGrow { from{width:0} to{width:100%} }
-        @keyframes floatBadge { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)} }
         @keyframes borderRun { 0%{background-position:0% 0%} 100%{background-position:300% 0%} }
         @keyframes scanLine { 0%{top:-80px} 100%{top:110%} }
 
@@ -72,6 +70,7 @@ export default function HomePage() {
         .hero-dots { animation: fadeSlide 0.8s 0.85s both; }
 
         .floating-badge { animation: floatBadge 3s ease-in-out infinite; }
+        @keyframes floatBadge { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)} }
 
         .img-hover { overflow: hidden; position: relative; }
         .img-hover img {
@@ -122,23 +121,41 @@ export default function HomePage() {
         .dot-btn { transition: all 0.3s cubic-bezier(0.22,1,0.36,1); }
         .dot-btn:hover { transform: scale(1.5); }
 
-        /* Mobile gallery grid */
+        /* Gallery grid */
         .gallery-grid {
           display: grid;
           grid-template-columns: repeat(2, 1fr);
           gap: 8px;
+          align-items: stretch;
         }
         @media (min-width: 768px) {
           .gallery-grid {
             grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: 260px 260px;
             gap: 12px;
           }
-          .gallery-tall { grid-row: 1 / 3; }
-          .gallery-img-h { height: 260px !important; }
+          .gallery-tall {
+            grid-row: 1 / 3;
+            height: 100% !important;
+          }
+          .gallery-img-h {
+            height: 100% !important;
+          }
+        }
+        @media (max-width: 767px) {
+          .gallery-tall, .gallery-img-h {
+            height: 200px !important;
+          }
         }
 
-        /* Mobile hero text */
-        @media (max-width: 480px) {
+        /* Mobile fixes */
+        @media (max-width: 768px) {
+          .gold-shimmer {
+            background: none !important;
+            -webkit-text-fill-color: #D4AF37 !important;
+            color: #D4AF37 !important;
+            animation: none !important;
+          }
           .hero-badge { display: none !important; }
         }
       `}</style>
@@ -153,12 +170,11 @@ export default function HomePage() {
         </div>
 
         {/* Overlays */}
-        <div style={{ position: "absolute", inset: 0, zIndex: 1,
+        <div className="hero-overlay-main" style={{ position: "absolute", inset: 0, zIndex: 1,
           background: "linear-gradient(to right, rgba(10,10,10,0.96) 0%, rgba(10,10,10,0.8) 50%, rgba(10,10,10,0.3) 100%)" }} />
         <div style={{ position: "absolute", inset: 0, zIndex: 2,
           background: "linear-gradient(to top, rgba(10,10,10,0.7) 0%, transparent 60%)" }} />
-        <div className="hero-overlay-main" style={{ position: "absolute", inset: 0, zIndex: 1,
-  background: "linear-gradient(to right, rgba(10,10,10,0.96) 0%, rgba(10,10,10,0.8) 50%, rgba(10,10,10,0.3) 100%)" }} />
+        <div className="overlay-grid scan-line" style={{ position: "absolute", inset: 0, zIndex: 3 }} />
 
         {/* Glow orbs */}
         <div style={{ position: "absolute", top: "20%", right: "8%", width: 500, height: 500,
@@ -222,7 +238,7 @@ export default function HomePage() {
           </div>
         </div>
 
-        {/* Floating badge — hidden on small mobile */}
+        {/* Floating badge */}
         <div className="hero-badge floating-badge" style={{ position: "absolute", bottom: 80, right: "5%", zIndex: 4,
           background: "rgba(10,10,10,0.85)", border: "1px solid rgba(212,175,55,0.3)",
           backdropFilter: "blur(12px)", padding: "16px 22px", textAlign: "center" }}>
@@ -339,15 +355,12 @@ export default function HomePage() {
             </Reveal>
           </div>
 
-          {/* Responsive gallery grid */}
           <div className="gallery-grid">
-            {/* Tall on desktop, normal on mobile */}
-            <Reveal variant="fadeLeft" className="gallery-tall">
-              <div className="img-hover" style={{ height: 200 }}>
-                <img src={GALLERY_IMAGES[0]} alt="Barbell Cartel"
-                  style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
-              </div>
-            </Reveal>
+            {/* Tall first image */}
+            <div className="img-hover gallery-tall" style={{ height: 200 }}>
+              <img src={GALLERY_IMAGES[0]} alt="Barbell Cartel"
+                style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
+            </div>
 
             {GALLERY_IMAGES.slice(1, 5).map((img, i) => (
               <Reveal key={i} variant="scaleUp" delay={i * 80}>
@@ -517,7 +530,6 @@ export default function HomePage() {
         <div style={{ position: "absolute", inset: 0, background: "rgba(10,10,10,0.9)" }} />
         <div className="overlay-grid" style={{ position: "absolute", inset: 0 }} />
 
-        {/* Diagonal lines */}
         <div style={{ position: "absolute", inset: 0, overflow: "hidden", pointerEvents: "none" }}>
           {[0,1,2].map(i => (
             <div key={i} style={{ position: "absolute", left: "-50%", top: `${20 + i*30}%`,
