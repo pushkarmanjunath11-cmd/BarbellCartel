@@ -5,15 +5,15 @@
 @tailwind utilities;
 
 :root {
-  --yellow:      #C9F135;
-  --yellow-dim:  #9BBF1A;
-  --red:         #E8000D;
-  --red-dark:    #A50009;
-  --black:       #0D0D0D;
-  --dark:        #141414;
-  --card:        #1A1A1A;
-  --border:      rgba(201,241,53,0.15);
-  --border-red:  rgba(232,0,13,0.3);
+  --yellow:      #D4AF37;
+  --yellow-dim:  #A8892A;
+  --red:         #8B0000;
+  --red-dark:    #5C0000;
+  --black:       #0A0A0A;
+  --dark:        #111111;
+  --card:        #181818;
+  --border:      rgba(212,175,55,0.15);
+  --border-red:  rgba(139,0,0,0.3);
   --text:        #F0F0F0;
   --muted:       #888888;
   --muted-light: #AAAAAA;
@@ -49,28 +49,6 @@ body {
   50%       { transform: translateY(-10px); }
 }
 
-.cta-button {
-  background: var(--black);
-  color: var(--yellow);
-  border: none;
-  padding: 15px 40px;
-  font-family: 'Anton', sans-serif;
-  font-size: 1rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  text-decoration: none;
-  display: inline-block;
-  border-radius: 0;
-  transition: all 0.3s ease;
-}
-
-.cta-button:focus,
-.cta-button:focus-visible {
-  outline: 2px solid var(--yellow);
-  outline-offset: 2px;
-  box-shadow: 0 0 0 4px rgba(201, 241, 53, 0.2);
-}
-
 @keyframes slideUp {
   from { opacity: 0; transform: translateY(28px); }
   to   { opacity: 1; transform: translateY(0); }
@@ -93,9 +71,9 @@ body {
   text-align: center;
 }
 .btn-primary:hover {
-  background: #d8f040;
+  background: #e8c84a;
   transform: translateY(-2px);
-  box-shadow: 0 8px 28px rgba(201,241,53,0.35);
+  box-shadow: 0 8px 28px rgba(212,175,55,0.35);
 }
 
 .btn-outline {
@@ -115,7 +93,7 @@ body {
   text-align: center;
 }
 .btn-outline:hover {
-  background: rgba(201,241,53,0.08);
+  background: rgba(212,175,55,0.08);
   transform: translateY(-2px);
 }
 
@@ -142,7 +120,7 @@ body {
 
 .input-field {
   width: 100%;
-  background: rgba(201,241,53,0.04);
+  background: rgba(212,175,55,0.04);
   border: 1px solid var(--border);
   color: var(--text);
   padding: 14px 18px;
@@ -153,7 +131,7 @@ body {
 }
 .input-field:focus {
   border-color: var(--yellow);
-  background: rgba(201,241,53,0.07);
+  background: rgba(212,175,55,0.07);
 }
 .input-field::placeholder { color: #555; }
 

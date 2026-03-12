@@ -28,10 +28,10 @@ export default function Navbar() {
         {/* Logo */}
         <Link href="/" style={{ textDecoration: "none" }}>
           <div style={{ fontFamily: "'Anton', sans-serif", fontSize: "1.55rem", letterSpacing: "0.04em", color: "#F0F0F0", lineHeight: 1 }}>
-            NS <span style={{ color: "var(--yellow)" }}>FITNESS</span>
+            BARBELL <span style={{ color: "var(--yellow)" }}>CARTEL</span>
           </div>
           <div style={{ fontFamily: "'Barlow Condensed', sans-serif", fontSize: "0.58rem", letterSpacing: "0.38em", color: "#555", textTransform: "uppercase" }}>
-            REVOLUTION
+            BROOKEFIELD · BANGALORE
           </div>
         </Link>
 
