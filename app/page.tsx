@@ -319,24 +319,48 @@ export default function HomePage() {
           </div>
 
           {/* Animated masonry grid */}
-          <div style={{ display:"grid", gridTemplateColumns:"repeat(3,1fr)", gap:12 }}>
-            <Reveal variant="fadeLeft" style={{ gridColumn:"1", gridRow:"1 / 3" }}>
-              <div className="img-hover" style={{ height:"100%", minHeight:420 }}>
-                <img src={GALLERY_IMAGES[0]} alt="Barbell Cartel"
-                  style={{ width:"100%", height:"100%", objectFit:"cover", display:"block" }} />
-                <div style={{ position:"absolute", inset:0,
-                  background:"linear-gradient(to top, rgba(10,10,10,0.5) 0%, transparent 60%)",
-                  pointerEvents:"none" }} />
+          <div style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(2, 1fr)",  // 2 cols on mobile
+            gap: 8,
+          }}>
+          <style>{`
+            @media (min-width: 768px) {
+            .gallery-grid { grid-template-columns: repeat(3, 1fr) !important; }
+            .gallery-tall  { grid-row: 1 / 3 !important; }
+            }
+            `}</style>
+
+          {/* All images same height on mobile, tall on desktop */}
+          {GALLERY_IMAGES.slice(0, 5).map((img, i) => (
+            <Reveal key={i} variant="scaleUp" delay={i * 80}
+            className={i === 0 ? "gallery-tall" : ""}
+              style={{ gridColumn: i === 0 ? undefined : undefined }}>
+              <div className="img-hover" style={{ height: 200 }}>
+                <img src={img} alt="Barbell Cartel"
+                  style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
               </div>
             </Reveal>
-            {GALLERY_IMAGES.slice(1, 5).map((img, i) => (
-              <Reveal key={i} variant="scaleUp" delay={i * 100}>
-                <div className="img-hover" style={{ height:240 }}>
-                  <img src={img} alt="Barbell Cartel"
-                    style={{ width:"100%", height:"100%", objectFit:"cover", display:"block" }} />
+          ))}
+
+          <Reveal variant="fadeRight">
+            <div className="img-hover border-animated"
+              style={{ height: 200, position: "relative", cursor: "pointer" }}
+              onClick={() => window.location.href = "/join"}>
+              <img src={GALLERY_IMAGES[5]} alt="Barbell Cartel"
+                style={{ width: "100%", height: "100%", objectFit: "cover", display: "block", filter: "brightness(0.4)" }} />
+              <div style={{ position: "absolute", inset: 0, display: "flex", alignItems: "center",
+                justifyContent: "center", flexDirection: "column", gap: 6 }}>
+                <div style={{ fontFamily: "'Anton',sans-serif", fontSize: "1.4rem", color: "#D4AF37", textAlign: "center" }}>
+                  BOOK A TOUR
                 </div>
-              </Reveal>
-            ))}
+                <div style={{ fontSize: "0.75rem", color: "rgba(255,255,255,0.6)", letterSpacing: "0.15em" }}>
+                  WALK THE FLOOR →
+                </div>
+              </div>
+            </div>
+          </Reveal>
+        </div>
             <Reveal variant="fadeRight">
               <div className="img-hover border-animated" style={{ height:240, position:"relative", cursor:"pointer" }}
                 onClick={() => window.location.href="/join"}>
