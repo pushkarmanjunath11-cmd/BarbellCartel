@@ -7,14 +7,14 @@ import Link from "next/link";
 export default function AboutPage() {
   return (
     <>
-      <PageHero tag="Our Story" title="ABOUT" accent="NS FITNESS" sub="More than a gym — a revolution. Built for fighters, beginners, and everyone in between." />
+      <PageHero tag="Our Story" title="ABOUT" accent="Barbell Cartel" sub="More than a gym — a revolution. Built for fighters, beginners, and everyone in between." />
 
       <section style={{ padding: "90px 5%", background: "var(--black)" }}>
         <div style={{ maxWidth: 1280, margin: "0 auto", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: 64, alignItems: "start" }}>
           <div>
             <div className="section-tag">Mission</div>
             <h2 className="section-title">BUILT FOR<br /><span style={{ color: "var(--yellow)" }}>FIGHTERS.</span></h2>
-            <p style={{ color: "#888", lineHeight: 1.95, marginBottom: 20 }}>NS Fitness Revolution was founded with one mission: to bring world-class fitness to every person in AECS Layout — regardless of their starting point.</p>
+            <p style={{ color: "#888", lineHeight: 1.95, marginBottom: 20 }}>Barbell Cartel was founded with one mission: to bring world-class fitness to every person in AECS Layout — regardless of their starting point.</p>
             <p style={{ color: "#888", lineHeight: 1.95, marginBottom: 20 }}>Our 3,000+ sq ft arena is equipped with professional-grade red equipment, motivational murals on every wall, and an atmosphere that charges you up the moment you walk through the door.</p>
             <p style={{ color: "#888", lineHeight: 1.95 }}>Beginners, athletes, weight-loss warriors, bodybuilders — everyone belongs here and everyone gets results.</p>
           </div>
